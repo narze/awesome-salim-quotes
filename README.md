@@ -7,4 +7,4 @@ Contributions welcome!
 - ไม่มี `REDACTED` ประเทศไทยจะพัฒนามาถึงจุดนี้หรือ
 - รักชาติ ศาสน์ กษัตริย์
 - ไอ้ทอน
-<!-- Add more above this line! -->
+<!-- Add more above this line! เพิ่มข้อความเหนือบรรทัดนี้ -->
