@@ -51,4 +51,6 @@ Contributions welcome!
 - `INSERT "Salapao & Numnim" FB STICKER HERE`
 - โดนไอ้แม้วซื้อไปแล้ว
 - รับไปห้าร้อย
+- ลุงตู่เป็นคนดี
+- ลุงตู่อยู่บ้านเมืองสงบ
 <!-- Add more above this line! เพิ่มข้อความเหนือบรรทัดนี้ -->
