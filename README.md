@@ -49,5 +49,6 @@ Contributions welcome!
 - ม๊อบสวะ
 - ไอ้เจ็กกบฎ
 - `INSERT "Salapao & Numnim" FB STICKER HERE`
-
+- โดนไอ้แม้วซื้อไปแล้ว
+- รับไปห้าร้อย
 <!-- Add more above this line! เพิ่มข้อความเหนือบรรทัดนี้ -->
