@@ -1,0 +1,51 @@
+<style>
+body   { background-color: #ff6; }
+h1     { font-size: 42px; }
+p      { font-size: 22px; }
+button { font-size: 25px; }
+
+.red   { color: red; }
+.white { color: white; }
+.blue  { color: blue; }
+
+#result {
+  padding: .75em;
+  max-width: 30em;
+  border: dashed 1px;
+  border-radius: 5px;
+}
+
+#generate { width: 5em; }
+</style>
+
+<script>
+Math.randint = (n) => Math.floor(n * Math.random());
+document.addEventListener('DOMContentLoaded', () => {
+  var sentences;
+  let xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = () => {
+    if (xhr.readyState == 4) {
+      sentences = xhr.responseText
+                     .split('\n')
+                     .filter((line) => line.startsWith('- '))
+                     .map((line) => line.substring(2));
+      document.getElementById('generate').removeAttribute('disabled');
+    }
+  };
+  xhr.open('GET', 'https://raw.githubusercontent.com/narze/awesome-salim-quotes/main/README.md');
+  xhr.send();
+  document.getElementById('generate').onclick = (e) => {
+    document.getElementById('result').innerHTML = sentences[Math.randint(sentences.length)];
+  };
+});
+</script>
+
+<center>
+  <h1><span class="red">โค้วท</span><!--
+   --><span class="white">ของ</span><!--
+   --><span class="blue">สลิ่ม</span><!--
+   --><span class="white">สุด</span><!--
+   --><span class="red">เจ๋ง</span></h1>
+  <p id="result">เถียงไม่ออก บอกเราสิ 👇🏿</p>
+  <button id="generate" disabled><marquee>🚴‍♂️ ปั่นเลย! 🚴‍♀️</marquee></button>
+</center>
