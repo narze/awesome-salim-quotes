@@ -1,101 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Document</title>
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body   { background-color: #ff6; }
-h1     { font-size: 42px; }
-p      { font-size: 22px; }
-button { font-size: 25px; }
-
-.red   { color: red; }
-.white { color: white; }
-.blue  { color: blue; }
-
-#result {
-  padding: .75em;
-  max-width: 30em;
-  border: dashed 1px;
-  border-radius: 5px;
-  margin-bottom: 0;
-}
-
-#hidden_result {
-  position: absolute;
-  z-index: -1;
-  opacity: 0;
-}
-
-#copy{
-  display: block;
-  opacity: 0;
-  margin-bottom: 20px;
-}
-
-#generate { 
-  padding: 8px 8em;
-  border: none;
-  box-shadow: 0px 4px 16px 1px rgba(0, 0, 0, 0.25);
-}
-
-@media only screen and (max-width: 768px) {
-  /* For mobile phones: */
-  body { 
-    padding-top: 120px;
-  }
-  #generate{
-    height: 56px;
-    width: 90%;
-    padding: 8px 0;
-    margin-top: 100px;
-  }
-}
-
-</style>
-
-<script>
-Math.randint = (n) => Math.floor(n * Math.random());
-document.addEventListener('DOMContentLoaded', () => {
-  var sentences, curr_sentence;
-  let xhr = new XMLHttpRequest();
-  xhr.onreadystatechange = () => {
-    if (xhr.readyState == 4) {
-      sentences = xhr.responseText
-                     .split('\n')
-                     .filter((line) => line.startsWith('- '))
-                     .map((line) => line.substring(2));
-      document.getElementById('generate').removeAttribute('disabled');
+  <style>
+    body {
+      background-color: #ff6;
     }
-  };
-  xhr.open('GET', 'https://raw.githubusercontent.com/narze/awesome-salim-quotes/main/README.md');
-  xhr.send();
-  document.getElementById('generate').onclick = (e) => {
-    curr_sentence = sentences[Math.randint(sentences.length)];
-    document.getElementById('result').innerHTML = curr_sentence;
-    document.getElementById('copy').innerHTML = "copy"
-    document.getElementById('copy').style.opacity = 1
-  };
+    h1 {
+      font-size: 42px;
+    }
+    p {
+      font-size: 22px;
+    }
+    button {
+      font-size: 25px;
+    }
 
-  document.getElementById('copy').onclick = (e) => {
-    document.getElementById('hidden_result').value = curr_sentence;
-    var copyElem = document.getElementById("hidden_result");
-    copyElem.select();
-    copyElem.setSelectionRange(0, 99999);
-    document.execCommand("copy");
-    document.getElementById('copy').innerHTML = "copied"
-    // clear selection
-    if (window.getSelection) {window.getSelection().removeAllRanges();}
-    else if (document.selection) {document.selection.empty();}
-  };
-});
-</script>
+    .red {
+      color: red;
+    }
+    .white {
+      color: white;
+    }
+    .blue {
+      color: blue;
+    }
 
-<center>
-  <h1><span class="red">โค้วท</span><!--
-   --><span class="white">ของ</span><!--
-   --><span class="blue">สลิ่ม</span><!--
-   --><span class="white">สุด</span><!--
-   --><span class="red">เจ๋ง</span></h1>
-   <input id="hidden_result">
-  <p id="result">เถียงไม่ออก บอกเราสิ 👇🏿</p>
-  <button id="copy">copy</button>
-  <button id="generate">🚴‍♂️ ปั่นเลย! 🚴‍♀️</button>
-</center>
+    #result {
+      padding: 0.75em;
+      max-width: 30em;
+      border: dashed 1px;
+      border-radius: 5px;
+      margin-bottom: 0;
+    }
+
+    #hidden_result {
+      position: absolute;
+      z-index: -1;
+      opacity: 0;
+    }
+
+    #copy {
+      display: block;
+      opacity: 0;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+
+    #generate {
+      padding: 8px 8em;
+      border: none;
+      box-shadow: 0px 4px 16px 1px rgba(0, 0, 0, 0.25);
+    }
+
+    @media only screen and (max-width: 768px) {
+      /* For mobile phones: */
+      body {
+        padding-top: 120px;
+      }
+
+      #generate {
+        height: 56px;
+        width: 90%;
+        padding: 8px 0;
+        margin-top: 100px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <center>
+    <h1><span class="red">โค้วท</span><!--
+    --><span class="white">ของ</span><!--
+    --><span class="blue">สลิ่ม</span><!--
+    --><span class="white">สุด</span><!--
+    --><span class="red">เจ๋ง</span></h1>
+    <input id="hidden_result">
+    <p id="result">เถียงไม่ออก บอกเราสิ 👇🏿</p>
+    <button id="copy"></button>
+    <button id="generate" disabled><marquee>🚴‍♂️ ปั่นเลย! 🚴‍♀️</marquee></button>
+  </center>
+
+  <script>
+    Math.randint = (n) => Math.floor(n * Math.random());
+    document.addEventListener("DOMContentLoaded", () => {
+      var sentences, curr_sentence;
+      let xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = () => {
+        if (xhr.readyState == 4) {
+          sentences = xhr.responseText
+            .split("\n")
+            .filter((line) => line.startsWith("- "))
+            .map((line) => line.substring(2));
+          document.getElementById("generate").removeAttribute("disabled");
+        }
+      };
+      xhr.open(
+        "GET",
+        "https://raw.githubusercontent.com/narze/awesome-salim-quotes/main/README.md"
+      );
+      xhr.send();
+      document.getElementById("generate").onclick = (e) => {
+        curr_sentence = sentences[Math.randint(sentences.length)];
+        document.getElementById("result").innerHTML = curr_sentence;
+        document.getElementById("copy").innerHTML = "Copy";
+        document.getElementById("copy").style.opacity = 1;
+      };
+
+      document.getElementById("copy").onclick = (e) => {
+        document.getElementById("hidden_result").value = curr_sentence;
+        var copyElem = document.getElementById("hidden_result");
+        copyElem.select();
+        copyElem.setSelectionRange(0, 99999);
+        document.execCommand("copy");
+        document.getElementById("copy").innerHTML = "Copied";
+        // clear selection
+        if (window.getSelection) {
+          window.getSelection().removeAllRanges();
+        } else if (document.selection) {
+          document.selection.empty();
+        }
+      };
+    });
+  </script>
+</body>
+</html>
