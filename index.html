@@ -30,7 +30,25 @@ button { font-size: 25px; }
   margin-bottom: 20px;
 }
 
-#generate { width: 5em; }
+#generate { 
+  padding: 8px 8em;
+  border: none;
+  box-shadow: 0px 4px 16px 1px rgba(0, 0, 0, 0.25);
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  body { 
+    padding-top: 120px;
+  }
+  #generate{
+    height: 56px;
+    width: 90%;
+    padding: 8px 0;
+    margin-top: 100px;
+  }
+}
+
 </style>
 
 <script>
@@ -79,5 +97,5 @@ document.addEventListener('DOMContentLoaded', () => {
    <input id="hidden_result">
   <p id="result">เถียงไม่ออก บอกเราสิ 👇🏿</p>
   <button id="copy">copy</button>
-  <button id="generate" disabled><marquee>🚴‍♂️ ปั่นเลย! 🚴‍♀️</marquee></button>
+  <button id="generate">🚴‍♂️ ปั่นเลย! 🚴‍♀️</button>
 </center>
