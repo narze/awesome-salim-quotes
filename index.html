@@ -15,6 +15,19 @@ button { font-size: 25px; }
   max-width: 30em;
   border: dashed 1px;
   border-radius: 5px;
+  margin-bottom: 0;
+}
+
+#hidden_result {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+#copy{
+  display: block;
+  opacity: 0;
+  margin-bottom: 20px;
 }
 
 #generate { width: 5em; }
@@ -23,7 +36,7 @@ button { font-size: 25px; }
 <script>
 Math.randint = (n) => Math.floor(n * Math.random());
 document.addEventListener('DOMContentLoaded', () => {
-  var sentences;
+  var sentences, curr_sentence;
   let xhr = new XMLHttpRequest();
   xhr.onreadystatechange = () => {
     if (xhr.readyState == 4) {
@@ -37,7 +50,22 @@ document.addEventListener('DOMContentLoaded', () => {
   xhr.open('GET', 'https://raw.githubusercontent.com/narze/awesome-salim-quotes/main/README.md');
   xhr.send();
   document.getElementById('generate').onclick = (e) => {
-    document.getElementById('result').innerHTML = sentences[Math.randint(sentences.length)];
+    curr_sentence = sentences[Math.randint(sentences.length)];
+    document.getElementById('result').innerHTML = curr_sentence;
+    document.getElementById('copy').innerHTML = "copy"
+    document.getElementById('copy').style.opacity = 1
+  };
+
+  document.getElementById('copy').onclick = (e) => {
+    document.getElementById('hidden_result').value = curr_sentence;
+    var copyElem = document.getElementById("hidden_result");
+    copyElem.select();
+    copyElem.setSelectionRange(0, 99999);
+    document.execCommand("copy");
+    document.getElementById('copy').innerHTML = "copied"
+    // clear selection
+    if (window.getSelection) {window.getSelection().removeAllRanges();}
+    else if (document.selection) {document.selection.empty();}
   };
 });
 </script>
@@ -48,6 +76,8 @@ document.addEventListener('DOMContentLoaded', () => {
    --><span class="blue">สลิ่ม</span><!--
    --><span class="white">สุด</span><!--
    --><span class="red">เจ๋ง</span></h1>
+   <input id="hidden_result">
   <p id="result">เถียงไม่ออก บอกเราสิ 👇🏿</p>
+  <button id="copy">copy</button>
   <button id="generate" disabled><marquee>🚴‍♂️ ปั่นเลย! 🚴‍♀️</marquee></button>
 </center>
