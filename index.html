@@ -29,6 +29,10 @@
       color: blue;
     }
 
+    #title {
+      text-shadow: 2px 2px 8px grey;
+    }
+
     #result {
       padding: 0.75em;
       max-width: 30em;
@@ -73,12 +77,12 @@
 </head>
 <body>
   <center>
-    <h1><span class="red">วาท</span><!--
-    --><span class="white">กรรม</span><!--
-    --><span class="blue">สลิ่ม</span><!--
-    --><span class="white">สุด</span><!--
-    --><span class="red">เจ๋ง</span></h1>
-    <input id="hidden_result">
+    <h1 id="title"><span class="red">วาท</span><!--
+                --><span class="white">กรรม</span><!--
+                --><span class="blue">สลิ่ม</span><!--
+                --><span class="white">สุด</span><!--
+                --><span class="red">เจ๋ง</span></h1>
+    <input id="hidden_result" />
     <p id="result">เถียงไม่ออก บอกเราสิ 👇🏿</p>
     <button id="copy"></button>
     <button id="generate" disabled><marquee>🚴‍♂️ ปั่นเลย! 🚴‍♀️</marquee></button>
