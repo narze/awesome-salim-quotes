@@ -88,8 +88,8 @@
                 --><span class="white">สุด</span><!--
                 --><span class="red">เจ๋ง</span></h1>
     <input id="hidden_result" />
-    <p id="result">เถียงไม่ออก บอกเราสิ 👇🏿</p>
-    <button id="copy"></button>
+    <p id="result">กำลังโหลด...</p>
+    <button id="copy">Copy</button>
     <button id="generate" disabled><marquee>🚴‍♂️ ปั่นเลย! 🚴‍♀️</marquee></button>
 
     <p id="footer">
@@ -98,18 +98,29 @@
   </center>
 
   <script>
-    Math.randint = (n) => Math.floor(n * Math.random());
+    function quotesArrayGoBrrr(a) {
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    }
+
     document.addEventListener("DOMContentLoaded", () => {
-      var sentences, curr_sentence;
+      let sentences, curr_sentence, index = 0, count = 0;
       let xhr = new XMLHttpRequest();
+
       xhr.onreadystatechange = () => {
         if (xhr.readyState == 4) {
           sentences = xhr.responseText
             .split("\n")
             .filter((line) => line.startsWith("- "))
             .map((line) => line.substring(2));
+          count = sentences.length
+          sentences = quotesArrayGoBrrr(sentences)
           document.getElementById("generate").removeAttribute("disabled");
-          document.getElementById("count").innerHTML = sentences.length;
+          document.getElementById("count").innerHTML = count;
+          nextQuote()
         }
       };
       xhr.open(
@@ -117,16 +128,17 @@
         "https://raw.githubusercontent.com/narze/awesome-salim-quotes/main/README.md"
       );
       xhr.send();
-      document.getElementById("generate").onclick = (e) => {
-        curr_sentence = sentences[Math.randint(sentences.length)];
+
+      function nextQuote() {
+        curr_sentence = sentences[index++ % count];
         document.getElementById("result").innerHTML = curr_sentence;
         document.getElementById("copy").innerHTML = "Copy";
         document.getElementById("copy").style.opacity = 1;
-      };
+      }
 
-      document.getElementById("copy").onclick = (e) => {
+      function copyQuote() {
         document.getElementById("hidden_result").value = curr_sentence;
-        var copyElem = document.getElementById("hidden_result");
+        let copyElem = document.getElementById("hidden_result");
         copyElem.select();
         copyElem.setSelectionRange(0, 99999);
         document.execCommand("copy");
@@ -137,7 +149,10 @@
         } else if (document.selection) {
           document.selection.empty();
         }
-      };
+      }
+
+      document.getElementById("generate").onclick = nextQuote
+      document.getElementById("copy").onclick = copyQuote
     });
   </script>
 </body>
