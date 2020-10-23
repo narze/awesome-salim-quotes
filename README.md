@@ -129,3 +129,6 @@ Contributions welcome!
 - ไอทอนมันมาทำให้ประเทศวุ่นวาย
 - อย่าไปดูการเมืองมาก มันปั่น 
 <!-- Add more in any line to prevent conflicts เพิ่มข้อความที่บรรทัดไหนก็ได้ เพื่อป้องกันการ Conflict -->
+
+
+- สัมพันธไมติ๊ด
