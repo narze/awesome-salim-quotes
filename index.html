@@ -1,159 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>วาทกรรมสลิ่มสุดเจ๋ง</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>วาทกรรมสลิ่มสุดเจ๋ง</title>
 
-  <style>
-    body {
-      padding-top: 120px;
-      background-color: #ff6;
-    }
-    h1 {
-      font-size: 42px;
-    }
-    p {
-      font-size: 22px;
-    }
-    button {
-      font-size: 25px;
-    }
-
-    .red {
-      color: red;
-    }
-    .white {
-      color: white;
-    }
-    .blue {
-      color: blue;
-    }
-
-    #title {
-      text-shadow: 2px 2px 8px grey;
-    }
-
-    #result {
-      padding: 0.75em;
-      max-width: 30em;
-      border: dashed 1px;
-      border-radius: 5px;
-      margin-bottom: 0;
-    }
-
-    #hidden_result {
-      position: absolute;
-      z-index: -1;
-      opacity: 0;
-    }
-
-    #copy {
-      display: block;
-      opacity: 0;
-      margin-top: 10px;
-      margin-bottom: 20px;
-    }
-
-    #generate {
-      padding: 8px 8em;
-      border: none;
-      box-shadow: 0px 4px 16px 1px rgba(0, 0, 0, 0.25);
-    }
-
-    #footer {
-      margin-top: 100px;
-    }
-
-    @media only screen and (max-width: 768px) {
-      /* For mobile phones: */
+    <style>
       body {
         padding-top: 120px;
+        background-color: #ff6;
+      }
+      h1 {
+        font-size: 42px;
+      }
+      p {
+        font-size: 22px;
+      }
+      button {
+        font-size: 25px;
+      }
+
+      .red {
+        color: red;
+      }
+      .white {
+        color: white;
+      }
+      .blue {
+        color: blue;
+      }
+
+      #title {
+        text-shadow: 2px 2px 8px grey;
+      }
+
+      #result {
+        padding: 0.75em;
+        max-width: 30em;
+        border: dashed 1px;
+        border-radius: 5px;
+        margin-bottom: 0;
+      }
+
+      #hidden_result {
+        position: absolute;
+        z-index: -1;
+        opacity: 0;
+      }
+
+      #copy {
+        display: block;
+        opacity: 0;
+        margin-top: 10px;
+        margin-bottom: 20px;
       }
 
       #generate {
-        height: 56px;
-        width: 90%;
-        padding: 8px 0;
+        padding: 8px 8em;
+        border: none;
+        box-shadow: 0px 4px 16px 1px rgba(0, 0, 0, 0.25);
+      }
+
+      #footer {
         margin-top: 100px;
       }
-    }
-  </style>
-</head>
-<body>
-  <center>
-    <h1 id="title"><span class="red">วาท</span><!--
-                --><span class="white">กรรม</span><!--
-                --><span class="blue">สลิ่ม</span><!--
-                --><span class="white">สุด</span><!--
-                --><span class="red">เจ๋ง</span></h1>
-    <input id="hidden_result" />
-    <p id="result">กำลังโหลด...</p>
-    <button id="copy">Copy</button>
-    <button id="generate" disabled><marquee>🚴‍♂️ ปั่นเลย! 🚴‍♀️</marquee></button>
 
-    <p id="footer">
-      ดูวาทกรรมทั้งหมด (<span id="count">-</span>) หรือเสนอเพิ่มได้ที่ <a href="https://github.com/narze/awesome-salim-quotes" target="_blank">GitHub</a>
-    </p>
-  </center>
-
-  <script>
-    function quotesArrayGoBrrr(a) {
-      for (let i = a.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [a[i], a[j]] = [a[j], a[i]];
-      }
-      return a;
-    }
-
-    document.addEventListener("DOMContentLoaded", () => {
-      let sentences, curr_sentence, index = 0, count = 0;
-      let xhr = new XMLHttpRequest();
-
-      xhr.onreadystatechange = () => {
-        if (xhr.readyState == 4) {
-          sentences = xhr.responseText
-            .split("\n")
-            .filter((line) => line.startsWith("- "))
-            .map((line) => line.substring(2));
-          count = sentences.length
-          sentences = quotesArrayGoBrrr(sentences)
-          document.getElementById("generate").removeAttribute("disabled");
-          document.getElementById("count").innerHTML = count;
-          nextQuote()
+      @media only screen and (max-width: 768px) {
+        /* For mobile phones: */
+        body {
+          padding-top: 120px;
         }
-      };
-      xhr.open(
-        "GET",
-        "https://raw.githubusercontent.com/narze/awesome-salim-quotes/main/README.md"
-      );
-      xhr.send();
 
-      function nextQuote() {
-        curr_sentence = sentences[index++ % count];
-        document.getElementById("result").innerHTML = curr_sentence;
-        document.getElementById("copy").innerHTML = "Copy";
-        document.getElementById("copy").style.opacity = 1;
-      }
-
-      function copyQuote() {
-        document.getElementById("hidden_result").value = curr_sentence;
-        let copyElem = document.getElementById("hidden_result");
-        copyElem.select();
-        copyElem.setSelectionRange(0, 99999);
-        document.execCommand("copy");
-        document.getElementById("copy").innerHTML = "Copied";
-        // clear selection
-        if (window.getSelection) {
-          window.getSelection().removeAllRanges();
-        } else if (document.selection) {
-          document.selection.empty();
+        #generate {
+          height: 56px;
+          width: 90%;
+          padding: 8px 0;
+          margin-top: 100px;
         }
       }
+    </style>
+  </head>
+  <body>
+    <center>
+      <h1 id="title">
+        <span class="red">วาท</span
+        ><!--
+                --><span class="white">กรรม</span
+        ><!--
+                --><span class="blue">สลิ่ม</span
+        ><!--
+                --><span class="white">สุด</span
+        ><!--
+                --><span class="red">เจ๋ง</span>
+      </h1>
+      <input id="hidden_result" />
+      <p id="result">กำลังโหลด...</p>
+      <button id="copy">Copy</button>
+      <button id="generate" disabled><marquee>🚴‍♂️ ปั่นเลย! 🚴‍♀️</marquee></button>
 
-      document.getElementById("generate").onclick = nextQuote
-      document.getElementById("copy").onclick = copyQuote
-    });
-  </script>
-</body>
+      <p id="footer">
+        ดูวาทกรรมทั้งหมด (<span id="count">-</span>) หรือเสนอเพิ่มได้ที่
+        <a href="https://github.com/narze/awesome-salim-quotes" target="_blank"
+          >GitHub</a
+        >
+      </p>
+    </center>
+
+    <script>
+      function quotesArrayGoBrrr(a) {
+        for (let i = a.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [a[i], a[j]] = [a[j], a[i]];
+        }
+        return a;
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        let sentences,
+          latest,
+          curr_sentence,
+          index = 0,
+          count = 0;
+        let xhr = new XMLHttpRequest();
+
+        xhr.onreadystatechange = () => {
+          if (xhr.readyState == 4) {
+            sentences = xhr.responseText
+              .split("\n")
+              .filter((line) => line.startsWith("- "))
+              .map((line) => line.substring(2));
+            count = sentences.length;
+            latest = sentences[count - 1];
+            sentences = quotesArrayGoBrrr(sentences);
+            document.getElementById("generate").removeAttribute("disabled");
+            document.getElementById("count").innerHTML = count;
+            showQuote(latest);
+          }
+        };
+        xhr.open(
+          "GET",
+          "https://raw.githubusercontent.com/narze/awesome-salim-quotes/main/README.md"
+        );
+        xhr.send();
+
+        function showQuote(quote) {
+          curr_sentence = quote;
+          document.getElementById("result").innerHTML = quote;
+          document.getElementById("copy").innerHTML = "Copy";
+          document.getElementById("copy").style.opacity = 1;
+        }
+
+        function nextQuote() {
+          curr_sentence = sentences[index++ % count];
+          showQuote(curr_sentence);
+        }
+
+        function copyQuote() {
+          document.getElementById("hidden_result").value = curr_sentence;
+          let copyElem = document.getElementById("hidden_result");
+          copyElem.select();
+          copyElem.setSelectionRange(0, 99999);
+          document.execCommand("copy");
+          document.getElementById("copy").innerHTML = "Copied";
+          // clear selection
+          if (window.getSelection) {
+            window.getSelection().removeAllRanges();
+          } else if (document.selection) {
+            document.selection.empty();
+          }
+        }
+
+        document.getElementById("generate").onclick = nextQuote;
+        document.getElementById("copy").onclick = copyQuote;
+      });
+    </script>
+  </body>
 </html>
