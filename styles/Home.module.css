@@ -168,6 +168,7 @@
   display: inline-block;
   vertical-align: middle;
   line-height: normal;
+  text-shadow: 2px 2px 8px white;
 }
 
 .action {
@@ -186,6 +187,8 @@
   text-decoration: none;
   font-size: calc(1rem + 1vw);
   width: 240px;
+  margin: 8px;
+  margin-top: 0;
 }
 
 @media (max-width: 600px) {
