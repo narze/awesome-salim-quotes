@@ -3,13 +3,13 @@ import Head from "next/head"
 import { useRouter } from "next/router"
 import React, { useEffect, useState } from "react"
 import AutosizeText from "../components/autosize-text"
+import { baseUrl } from "../config"
 
 import styles from "../styles/Home.module.css"
 
 export default function Home({ entries }: { entries: string[] }) {
   const router = useRouter()
   const [entry, setEntry] = useState("...")
-  const url = `${process.env.NEXT_PUBLIC_BASE_URL}`
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -34,7 +34,7 @@ export default function Home({ entries }: { entries: string[] }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
 
-        <meta property="og:url" content={url} />
+        <meta property="og:url" content={baseUrl} />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="วาทกรรมสลิ่มสุดเจ๋ง" />
         <meta name="twitter:card" content="วาทกรรมสลิ่มสุดเจ๋ง" />

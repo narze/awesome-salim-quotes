@@ -14,9 +14,10 @@ import {
 
 import styles from "../styles/Home.module.css"
 import AutosizeText from "../components/autosize-text"
+import { baseUrl } from "../config"
 
 function Entry({ id, entry }: { id: Number; entry: string }) {
-  const url = `${process.env.NEXT_PUBLIC_BASE_URL}/${id}`
+  const url = `${baseUrl}/${id}`
 
   function getOgImageUrl() {
     const size = Math.min(3, entry.length / 20)
