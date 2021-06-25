@@ -1,5 +1,6 @@
 import { promises as fs } from "fs"
 import Head from "next/head"
+import Link from "next/link"
 import { useRouter } from "next/router"
 import React, { useEffect, useState } from "react"
 import AutosizeText from "../components/autosize-text"
@@ -8,10 +9,12 @@ import { baseUrl } from "../config"
 import styles from "../styles/Home.module.css"
 
 export default function Home({ entries }: { entries: string[] }) {
-  const router = useRouter()
   const [entry, setEntry] = useState("...")
+  const [resultId, setResultId] = useState(1)
 
   useEffect(() => {
+    setResultId(~~(Math.random() * entries.length) + 1)
+
     const interval = setInterval(() => {
       setEntry(entries[~~(Math.random() * entries.length)])
     }, 100)
@@ -20,11 +23,6 @@ export default function Home({ entries }: { entries: string[] }) {
       clearInterval(interval)
     }
   }, [entries])
-
-  function randomEntry(e: any) {
-    e.preventDefault()
-    router.push(`/${~~(Math.random() * entries.length) + 1}`)
-  }
 
   return (
     <div>
@@ -62,9 +60,9 @@ export default function Home({ entries }: { entries: string[] }) {
             <AutosizeText>{entry}</AutosizeText>
           </p>
           <p className={styles.action}>
-            <button onClick={randomEntry} className={styles.button}>
-              🚴‍♂️ ปั่นเลย! 🚴‍♀️
-            </button>
+            <Link href={`/${resultId}`} passHref>
+              <button className={styles.button}>🚴‍♂️ ปั่นเลย! 🚴‍♀️</button>
+            </Link>
           </p>
         </div>
       </main>
