@@ -175,7 +175,7 @@
 .action {
   position: fixed;
   width: 100%;
-  top: 73vh;
+  top: 71vh;
   text-align: center;
 }
 
@@ -183,13 +183,20 @@
   color: black;
   border: 2px solid black;
   border-radius: 10px;
-  padding: 15px 0;
+  padding: 12px 0;
   text-align: center;
   text-decoration: none;
   font-size: calc(1rem + 1vw);
   width: 240px;
   margin: 8px;
   margin-top: 0;
+}
+
+.share span {
+  position: relative;
+  bottom: 16px;
+  margin-right: 12px;
+  font-size: 1.2rem;
 }
 
 @media (max-width: 600px) {
