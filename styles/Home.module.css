@@ -1,7 +1,7 @@
 .container {
   min-height: 100vh;
   margin: 0;
-  padding: 20px;
+  padding: 20px 0;
   /* display: flex; */
   /* flex-direction: column;
   justify-content: center;
@@ -11,21 +11,21 @@
   background-image: linear-gradient(
     to bottom,
     #002b7f,
-    #002b7f 16.66%,
-    #ffffff 16.66%,
-    #ffffff 33.33%,
-    #ce1126 33.33%,
-    #ce1126 66.67%,
-    #ffffff 66.67%,
-    #ffffff 83.33%,
-    #002b7f 83.33%,
+    #002b7f 13.33%,
+    #ffffff 13.33%,
+    #ffffff 30%,
+    #ce1126 30%,
+    #ce1126 70%,
+    #ffffff 70%,
+    #ffffff 86.67%,
+    #002b7f 86.67%,
     #002b7f 100%
   );
   background-size: 100% 100%;
 }
 
 .title {
-  padding-top: 18vh;
+  padding-top: 15vh;
   text-shadow: 2px 2px 4px lightgrey;
 }
 
@@ -148,15 +148,25 @@
 .entryRoulette {
   position: fixed;
   width: 100%;
-  top: 33.33vh;
+  top: 30vh;
+  height: 40vh;
+  line-height: 40vh;
+  margin: 0;
+  padding: 0 20vw;
   text-align: center;
   font-size: 2rem;
+}
+
+.entryRoulette span {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
 }
 
 .action {
   position: fixed;
   width: 100%;
-  top: 68vh;
+  top: 73.66vh;
   text-align: center;
 }
 

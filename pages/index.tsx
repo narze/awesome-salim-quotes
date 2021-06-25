@@ -1,11 +1,9 @@
-import Head from "next/head"
-import Link from "next/link"
-import Image from "next/image"
 import { promises as fs } from "fs"
+import Head from "next/head"
+import { useRouter } from "next/router"
+import { useEffect, useState } from "react"
 
 import styles from "../styles/Home.module.css"
-import { useEffect, useState } from "react"
-import { useRouter } from "next/dist/client/router"
 
 export default function Home({ entries }: { entries: string[] }) {
   const router = useRouter()
@@ -44,7 +42,9 @@ export default function Home({ entries }: { entries: string[] }) {
             <span className={styles.white}>สุด</span>
             <span className={styles.red}>เจ๋ง</span>
           </h1>
-          <p className={styles.entryRoulette}>{entry}</p>
+          <p className={styles.entryRoulette}>
+            <span>{entry}</span>
+          </p>
           <p className={styles.action}>
             <button onClick={randomEntry} className={styles.button}>
               🚴‍♂️ ปั่นเลย! 🚴‍♀️
