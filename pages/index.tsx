@@ -8,7 +8,7 @@ import styles from "../styles/Home.module.css"
 
 export default function Home({ entries }: { entries: string[] }) {
   const router = useRouter()
-  const [entry, setEntry] = useState("")
+  const [entry, setEntry] = useState("...")
   const url = `${process.env.NEXT_PUBLIC_BASE_URL}`
 
   useEffect(() => {
