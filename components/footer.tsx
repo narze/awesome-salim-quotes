@@ -6,7 +6,7 @@ export default function Footer() {
       {links
         .map<React.ReactNode>(({ name, url }, idx) => {
           return (
-            <a href={url} key={idx}>
+            <a key={idx} href={url} target="_blank" rel="noreferrer">
               {name}
             </a>
           )
