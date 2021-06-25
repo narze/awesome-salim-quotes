@@ -14,3 +14,10 @@ a {
 * {
   box-sizing: border-box;
 }
+
+@font-face {
+  font-family: "NotoSansThai";
+  src: url("/NotoSansThai-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
