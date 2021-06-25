@@ -5,6 +5,7 @@ import React from "react"
 
 import styles from "../styles/Home.module.css"
 import Link from "next/link"
+import AutosizeText from "../components/autosize-text"
 
 function Entry({ id, entry }: { id: Number; entry: string }) {
   // const router = useRouter()
@@ -22,14 +23,16 @@ function Entry({ id, entry }: { id: Number; entry: string }) {
       <main className={styles.container}>
         <div>
           <h1 className={styles.title}>
-            <span className={styles.red}>วาท</span>
-            <span className={styles.white}>กรรม</span>
-            <span className={styles.blue}>สลิ่ม</span>
-            <span className={styles.white}>สุด</span>
-            <span className={styles.red}>เจ๋ง</span>
+            <span>
+              <span className={styles.red}>วาท</span>
+              <span className={styles.white}>กรรม</span>
+              <span className={styles.blue}>สลิ่ม</span>
+              <span className={styles.white}>สุด</span>
+              <span className={styles.red}>เจ๋ง</span>
+            </span>
           </h1>
           <p className={styles.entryRoulette}>
-            <span>{entry}</span>
+            <AutosizeText>{entry}</AutosizeText>
           </p>
           <p className={styles.action}>
             <Link href="/" passHref>

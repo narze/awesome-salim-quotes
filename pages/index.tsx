@@ -1,7 +1,8 @@
 import { promises as fs } from "fs"
 import Head from "next/head"
 import { useRouter } from "next/router"
-import { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
+import AutosizeText from "../components/autosize-text"
 
 import styles from "../styles/Home.module.css"
 
@@ -36,14 +37,16 @@ export default function Home({ entries }: { entries: string[] }) {
       <main className={styles.container}>
         <div>
           <h1 className={styles.title}>
-            <span className={styles.red}>วาท</span>
-            <span className={styles.white}>กรรม</span>
-            <span className={styles.blue}>สลิ่ม</span>
-            <span className={styles.white}>สุด</span>
-            <span className={styles.red}>เจ๋ง</span>
+            <span>
+              <span className={styles.red}>วาท</span>
+              <span className={styles.white}>กรรม</span>
+              <span className={styles.blue}>สลิ่ม</span>
+              <span className={styles.white}>สุด</span>
+              <span className={styles.red}>เจ๋ง</span>
+            </span>
           </h1>
           <p className={styles.entryRoulette}>
-            <span>{entry}</span>
+            <AutosizeText>{entry}</AutosizeText>
           </p>
           <p className={styles.action}>
             <button onClick={randomEntry} className={styles.button}>

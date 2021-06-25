@@ -25,8 +25,21 @@
 }
 
 .title {
-  padding-top: 15vh;
+  margin-top: -1vh;
+  margin-bottom: 0;
+  font-size: calc(2rem + 3vw);
+  position: fixed;
+  top: 13.33vh;
+  height: 16.67vh;
+  line-height: 16.67vh;
+  width: 100%;
   text-shadow: 2px 2px 4px lightgrey;
+}
+
+.title span {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
 }
 
 .red {
@@ -74,12 +87,6 @@
 .title a:focus,
 .title a:active {
   text-decoration: underline;
-}
-
-.title {
-  margin: 0;
-  line-height: 1.15;
-  font-size: 4rem;
 }
 
 .title,
@@ -152,9 +159,9 @@
   height: 40vh;
   line-height: 40vh;
   margin: 0;
-  padding: 0 20vw;
+  padding: 0 10vw;
   text-align: center;
-  font-size: 2rem;
+  font-size: calc(12px + 2vw);
 }
 
 .entryRoulette span {
@@ -166,7 +173,7 @@
 .action {
   position: fixed;
   width: 100%;
-  top: 73.66vh;
+  top: 73vh;
   text-align: center;
 }
 
@@ -177,7 +184,7 @@
   padding: 15px 0;
   text-align: center;
   text-decoration: none;
-  font-size: 2rem;
+  font-size: calc(1rem + 1vw);
   width: 240px;
 }
 
