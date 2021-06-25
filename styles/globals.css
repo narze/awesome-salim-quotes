@@ -21,3 +21,10 @@ a {
   font-weight: normal;
   font-style: normal;
 }
+
+footer {
+  color: white;
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+}

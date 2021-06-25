@@ -1,1 +1,7 @@
 export const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
+
+export const links = [
+  { name: "Github", url: "https://github.com/narze/awesome-salim-quotes" },
+  { name: "@narze", url: "https://twitter.com/narze" },
+  { name: "120วันเปิดประเทศ?", url: "https://thailand-grand-opening.web.app" },
+]

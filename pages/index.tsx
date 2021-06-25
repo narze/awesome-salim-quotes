@@ -4,7 +4,8 @@ import Link from "next/link"
 import { useRouter } from "next/router"
 import React, { useEffect, useState } from "react"
 import AutosizeText from "../components/autosize-text"
-import { baseUrl } from "../config"
+import Footer from "../components/footer"
+import { baseUrl, links } from "../config"
 
 import styles from "../styles/Home.module.css"
 
@@ -65,6 +66,8 @@ export default function Home({ entries }: { entries: string[] }) {
             </Link>
           </p>
         </div>
+
+        <Footer />
       </main>
     </div>
   )

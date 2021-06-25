@@ -15,6 +15,7 @@ import {
 import styles from "../styles/Home.module.css"
 import AutosizeText from "../components/autosize-text"
 import { baseUrl } from "../config"
+import Footer from "../components/footer"
 
 function Entry({ id, entry }: { id: Number; entry: string }) {
   const url = `${baseUrl}/${id}`
@@ -75,6 +76,8 @@ function Entry({ id, entry }: { id: Number; entry: string }) {
             </Link>
           </div>
         </div>
+
+        <Footer />
       </main>
     </div>
   )
