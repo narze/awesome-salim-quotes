@@ -162,6 +162,7 @@
   padding: 0 10vw;
   text-align: center;
   font-size: calc(12px + 2vw);
+  font-family: NotoSansThai;
 }
 
 .entryRoulette span {
