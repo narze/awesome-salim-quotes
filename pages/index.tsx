@@ -1,4 +1,5 @@
 import Head from "next/head"
+import Link from "next/link"
 import Image from "next/image"
 import { promises as fs } from "fs"
 
@@ -17,7 +18,9 @@ export default function Home({ entries }: { entries: string[] }) {
         <div>
           <ul>
             {entries.map((entry, idx) => (
-              <li key={idx}>{entry}</li>
+              <li key={idx}>
+                <Link href={`/${idx + 1}`}>{entry}</Link>
+              </li>
             ))}
           </ul>
         </div>
