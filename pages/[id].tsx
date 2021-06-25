@@ -55,7 +55,7 @@ function Entry({ id, entry }: { id: Number; entry: string }) {
               <span className={styles.red}>เจ๋ง</span>
             </span>
           </h1>
-          <div className={styles.entryRoulette}>
+          <div className={`${styles.entryRoulette} ${styles.grow}`}>
             <AutosizeText>{entry}</AutosizeText>
           </div>
           <div className={styles.action}>

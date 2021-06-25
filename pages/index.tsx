@@ -56,14 +56,14 @@ export default function Home({ entries }: { entries: string[] }) {
               <span className={styles.red}>เจ๋ง</span>
             </span>
           </h1>
-          <p className={styles.entryRoulette}>
+          <div className={`${styles.entryRoulette} ${styles.grow}`}>
             <AutosizeText>{entry}</AutosizeText>
-          </p>
-          <p className={styles.action}>
+          </div>
+          <div className={styles.action}>
             <Link href={`/${resultId}`} passHref>
               <button className={styles.button}>🚴‍♂️ ปั่นเลย! 🚴‍♀️</button>
             </Link>
-          </p>
+          </div>
         </div>
 
         <Footer />

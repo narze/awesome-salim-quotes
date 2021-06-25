@@ -199,6 +199,19 @@
   font-size: 1.2rem;
 }
 
+.grow {
+  animation: grow 0.5s;
+}
+
+@keyframes grow {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
 @media (max-width: 600px) {
   .grid {
     width: 100%;
