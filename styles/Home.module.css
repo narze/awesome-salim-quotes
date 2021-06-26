@@ -190,13 +190,29 @@
   width: 240px;
   margin: 8px;
   margin-top: 0;
+  background-color: white;
+}
+.smallButton {
+  color: black;
+  border: 1px solid;
+  border-radius: 10px;
+  padding: 8px;
+  text-align: center;
+  text-decoration: none;
+  width: 240px;
+  background-color: white;
 }
 
 .share span {
   position: relative;
   bottom: 16px;
-  margin-right: 12px;
+  margin-left: 12px;
   font-size: 1.2rem;
+}
+
+.share button {
+  position: relative;
+  top: 16px;
 }
 
 .grow {

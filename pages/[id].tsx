@@ -61,15 +61,28 @@ function Entry({ id, entry }: { id: Number; entry: string }) {
           <div className={styles.action}>
             <div className={styles.share}>
               <span>🪑 แชร์โลด 👉</span>
-              <FacebookShareButton url={url}>
-                <FacebookIcon size={46} />
-              </FacebookShareButton>
-              <TwitterShareButton url={url}>
-                <TwitterIcon size={46} />
-              </TwitterShareButton>
-              <LineShareButton url={url}>
-                <LineIcon size={46} />
-              </LineShareButton>
+              <span>
+                <FacebookShareButton url={url}>
+                  <FacebookIcon size={46} />
+                </FacebookShareButton>
+              </span>
+              <span>
+                <TwitterShareButton url={url}>
+                  <TwitterIcon size={46} />
+                </TwitterShareButton>
+              </span>
+              <span>
+                <LineShareButton url={url}>
+                  <LineIcon size={46} />
+                </LineShareButton>
+              </span>
+              <span>
+                <Link href="/latest" passHref>
+                  <a className={styles.smallButton}>
+                    <small>ดูวาทกรรมล่าสุด</small>
+                  </a>
+                </Link>
+              </span>
             </div>
             <Link href="/" passHref>
               <button className={styles.button}>🚴‍♀️ ปั่นใหม่ 🚴‍♂️</button>
