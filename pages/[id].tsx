@@ -59,6 +59,9 @@ function Entry({ id, entry }: { id: Number; entry: string }) {
             <AutosizeText>{entry}</AutosizeText>
           </div>
           <div className={styles.action}>
+            <Link href="/" passHref>
+              <button className={styles.button}>🚴‍♀️ ปั่นใหม่ 🚴‍♂️</button>
+            </Link>
             <div className={styles.share}>
               <span>🪑 แชร์โลด 👉</span>
               <span>
@@ -84,9 +87,6 @@ function Entry({ id, entry }: { id: Number; entry: string }) {
                 </Link>
               </span>
             </div>
-            <Link href="/" passHref>
-              <button className={styles.button}>🚴‍♀️ ปั่นใหม่ 🚴‍♂️</button>
-            </Link>
           </div>
         </div>
 
