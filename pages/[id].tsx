@@ -39,9 +39,12 @@ function Entry({ id, entry }: { id: Number; entry: string }) {
         <meta property="og:url" content={url} />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="วาทกรรมสลิ่มสุดเจ๋ง" />
-        <meta name="twitter:card" content="วาทกรรมสลิ่มสุดเจ๋ง" />
         <meta property="og:description" content="ปลุกความสลิ่มในตัวคุณ!" />
         <meta property="og:image" content={getOgImageUrl()} />
+
+        <meta name="twitter:title" content="วาทกรรมสลิ่มสุดเจ๋ง" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content={getOgImageUrl()} />
       </Head>
 
       <main className={styles.container}>

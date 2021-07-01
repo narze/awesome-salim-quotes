@@ -35,10 +35,18 @@ export default function Home({ entries }: { entries: string[] }) {
         <meta property="og:url" content={baseUrl} />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="วาทกรรมสลิ่มสุดเจ๋ง" />
-        <meta name="twitter:card" content="วาทกรรมสลิ่มสุดเจ๋ง" />
         <meta property="og:description" content="ปลุกความสลิ่มในตัวคุณ!" />
         <meta
           property="og:image"
+          content={
+            "https://og-image-asq.vercel.app/ไม่ใช่สลิ่มนะ%20แต่....?md=1&fontSize=calc(12vw)"
+          }
+        />
+
+        <meta name="twitter:title" content="วาทกรรมสลิ่มสุดเจ๋ง" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:image"
           content={
             "https://og-image-asq.vercel.app/ไม่ใช่สลิ่มนะ%20แต่....?md=1&fontSize=calc(12vw)"
           }
