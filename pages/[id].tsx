@@ -2,7 +2,7 @@ import { promises as fs } from "fs"
 import { GetStaticPaths, GetStaticProps } from "next"
 import Head from "next/head"
 import Link from "next/link"
-import React from "react"
+import React, { useState } from "react"
 import {
   FacebookShareButton,
   LineShareButton,
@@ -16,8 +16,10 @@ import styles from "../styles/Home.module.css"
 import AutosizeText from "../components/autosize-text"
 import { baseUrl } from "../config"
 import Footer from "../components/footer"
+import Submit from "../components/submit"
 
 function Entry({ id, entry }: { id: Number; entry: string }) {
+  const [showModal, setShowModal] = useState(false)
   const url = `${baseUrl}/${id}`
 
   function getOgImageUrl() {
@@ -89,11 +91,29 @@ function Entry({ id, entry }: { id: Number; entry: string }) {
                   </a>
                 </Link>
               </span>
+              <span>
+                <a
+                  href="#"
+                  className={styles.smallButton}
+                  onClick={() => setShowModal(true)}
+                >
+                  เพิ่มวาทะสลิ่ม
+                </a>
+              </span>
             </div>
           </div>
         </div>
 
         <Footer />
+
+        <div className={`${styles.modal} ${showModal && styles.open}`}>
+          <div className={styles.modalContent}>
+            <div className={styles.modalHeader}>➕ เพิ่มวาทะสลิ่ม</div>
+            <div className={styles.modalBody}>
+              <Submit onSubmit={() => setShowModal(false)} />
+            </div>
+          </div>
+        </div>
       </main>
     </div>
   )

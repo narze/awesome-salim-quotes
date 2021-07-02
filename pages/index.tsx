@@ -4,6 +4,7 @@ import Link from "next/link"
 import React, { useEffect, useState } from "react"
 import AutosizeText from "../components/autosize-text"
 import Footer from "../components/footer"
+import Submit from "../components/submit"
 import { baseUrl } from "../config"
 
 import styles from "../styles/Home.module.css"
@@ -11,6 +12,7 @@ import styles from "../styles/Home.module.css"
 export default function Home({ entries }: { entries: string[] }) {
   const [entry, setEntry] = useState("...")
   const [resultId, setResultId] = useState(1)
+  const [showModal, setShowModal] = useState(false)
 
   useEffect(() => {
     setResultId(~~(Math.random() * entries.length) + 1)
@@ -71,10 +73,26 @@ export default function Home({ entries }: { entries: string[] }) {
             <Link href={`/${resultId}`} passHref>
               <button className={styles.button}>🚴‍♂️ ปั่นเลย! 🚴‍♀️</button>
             </Link>
+
+            <button
+              className={styles.button}
+              onClick={() => setShowModal(true)}
+            >
+              เพิ่มวาทะสลิ่ม
+            </button>
           </div>
         </div>
 
         <Footer />
+
+        <div className={`${styles.modal} ${showModal && styles.open}`}>
+          <div className={styles.modalContent}>
+            <div className={styles.modalHeader}>➕ เพิ่มวาทะสลิ่ม</div>
+            <div className={styles.modalBody}>
+              <Submit onSubmit={() => setShowModal(false)} />
+            </div>
+          </div>
+        </div>
       </main>
     </div>
   )
