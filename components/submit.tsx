@@ -6,15 +6,16 @@ export default function Submit({ onSubmit }: { onSubmit: () => void }) {
   const [url, setUrl] = useState("")
 
   async function submitForm() {
-    const { data, error } = await supabase.from("Quote").insert([{ body, url }])
-
-    console.log({ data })
+    const { error } = await supabase.from("Quote").insert([{ body, url }])
 
     if (error) {
       alert(error.message)
     } else {
       alert("ขอบคุณ วาทะสลิ่มนี้จะถูกตรวจสอบและนำขึ้นหน้าเว็บเร็วๆ นี้")
     }
+
+    setBody("")
+    setUrl("")
 
     onSubmit()
   }
