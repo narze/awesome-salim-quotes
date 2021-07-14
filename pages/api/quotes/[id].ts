@@ -17,7 +17,7 @@ export default async function handler(
   const id = Number(req.query.id)
   const index = id - 1
 
-  const entries = getEntries()
+  const entries = await getEntries()
 
   const quote = {
     id: index + 1,

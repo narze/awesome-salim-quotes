@@ -14,7 +14,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  const entries = getEntries()
+  const entries = await getEntries()
 
   const index = ~~(Math.random() * entries.length)
 

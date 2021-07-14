@@ -1,8 +1,14 @@
-import * as fs from "fs"
+let readme: string
 
-const readme = fs.readFileSync("README.md", "utf8")
+export default async function getEntries() {
+  if (!readme) {
+    const response = await fetch(
+      "https://raw.githubusercontent.com/narze/awesome-salim-quotes/main/README.md"
+    )
 
-export default function getEntries() {
+    readme = await response.text()
+  }
+
   return readme
     .split("\n")
     .filter((line) => line.startsWith("- "))
