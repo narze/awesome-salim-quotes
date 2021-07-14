@@ -1,5 +1,7 @@
 # Awesome Salim Quotes
 
+Also available on [Website](https://watasalim.vercel.app/) and [API](https://watasalim.vercel.app/api).
+
 Contributions welcome!
 
 - ไม่ใช่สลิ่มนะ แต่...
