@@ -21,12 +21,12 @@ export default async function handler(
     .filter((line) => line.startsWith("- "))
     .map((l) => l.slice(2))
 
-  const index = Math.random() * entries.length
+  const index = ~~(Math.random() * entries.length)
 
   const quote = {
-    id: ~~index + 1,
-    body: entries[~~index],
-    url: `https://watasalim.vercel.app/${~~index + 1}`,
+    id: index + 1,
+    body: entries[index],
+    url: `https://watasalim.vercel.app/${index + 1}`,
   }
 
   res.status(200).json({ quote })
