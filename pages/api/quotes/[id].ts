@@ -1,6 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next"
-import { promises as fs } from "fs"
+import getEntries from "../../../utils/getEntries"
 
 type Data = {
   quote: {
@@ -16,12 +16,8 @@ export default async function handler(
 ) {
   const id = Number(req.query.id)
   const index = id - 1
-  const readme = await fs.readFile("README.md", "utf8")
 
-  const entries = readme
-    .split("\n")
-    .filter((line) => line.startsWith("- "))
-    .map((l) => l.slice(2))
+  const entries = getEntries()
 
   const quote = {
     id: index + 1,
