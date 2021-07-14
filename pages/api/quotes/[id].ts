@@ -12,18 +12,22 @@ type Data = {
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>
+  res: NextApiResponse<Data | { error: string }>
 ) {
   const id = Number(req.query.id)
   const index = id - 1
 
   const entries = await getEntries()
 
-  const quote = {
-    id: index + 1,
-    body: entries[index],
-    url: `https://watasalim.vercel.app/${index + 1}`,
-  }
+  if (entries[index]) {
+    const quote = {
+      id: index + 1,
+      body: entries[index],
+      url: `https://watasalim.vercel.app/${index + 1}`,
+    }
 
-  res.status(200).json({ quote })
+    res.status(200).json({ quote })
+  } else {
+    res.status(404).json({ error: "Not found" })
+  }
 }
