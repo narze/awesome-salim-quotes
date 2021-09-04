@@ -74,6 +74,10 @@ export default function Home({ entries }: { entries: string[] }) {
               <button className={styles.button}>🚴‍♂️ ปั่นเลย! 🚴‍♀️</button>
             </Link>
 
+            <Link href="/latest" passHref>
+              <button className={styles.button}>ดูวาทกรรมล่าสุด</button>
+            </Link>
+
             <button
               className={styles.button}
               onClick={() => setShowModal(true)}
