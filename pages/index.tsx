@@ -70,7 +70,7 @@ export default function Home({ entries }: { entries: string[] }) {
             <AutosizeText>{entry}</AutosizeText>
           </div>
           <div className={styles.action}>
-            <Link href={`/${resultId}`} passHref>
+            <Link href={`/${resultId}${resultId == 404 ? "_" : ""}`} passHref>
               <button className={styles.button}>🚴‍♂️ ปั่นเลย! 🚴‍♀️</button>
             </Link>
 

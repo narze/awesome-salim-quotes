@@ -130,9 +130,13 @@ export const getStaticPaths: GetStaticPaths = async () => {
     .map((l) => l.slice(2))
 
   // Get the paths we want to pre-render based on posts
-  const paths = entries.map((entry, idx) => ({
-    params: { id: `${idx + 1}` },
-  }))
+  const paths = entries.map((_entry, idx) => {
+    let id = `${idx + 1}`
+    if (id == "404") {
+      id = "404_"
+    }
+    return { params: { id } }
+  })
 
   // We'll pre-render only these paths at build time.
   // { fallback: false } means other routes should 404.
@@ -141,7 +145,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 // This also gets called at build time
 export const getStaticProps: GetStaticProps = async (context) => {
-  const id = Number(context.params!.id)
+  const id = Number((context.params!.id as string).replace(/_/g, ""))
   // export async function getStaticProps({ params }) {
   const readme = await fs.readFile("README.md", "utf8")
 
