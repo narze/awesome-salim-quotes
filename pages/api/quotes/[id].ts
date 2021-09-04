@@ -23,7 +23,7 @@ export default async function handler(
     const quote = {
       id: index + 1,
       body: entries[index],
-      url: `https://watasalim.vercel.app/${index + 1}`,
+      url: `https://watasalim.vercel.app/q/${index + 1}`,
     }
 
     res.status(200).json({ quote })

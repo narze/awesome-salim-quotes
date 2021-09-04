@@ -8,7 +8,7 @@ export default function Latest({ entriesCount }: { entriesCount: number }) {
   const router = useRouter()
 
   useEffect(() => {
-    router.push(`/${entriesCount}`)
+    router.push(`/q/${entriesCount}`)
   })
 
   return (

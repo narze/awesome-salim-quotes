@@ -19,7 +19,7 @@ export default async function handler(
   const quotes = entries.map((entry, index) => ({
     id: index + 1,
     body: entry,
-    url: `https://watasalim.vercel.app/${index + 1}`,
+    url: `https://watasalim.vercel.app/q/${index + 1}`,
   }))
 
   res.status(200).json({ quotes })

@@ -12,11 +12,11 @@ import {
   LineIcon,
 } from "react-share"
 
-import styles from "../styles/Home.module.css"
-import AutosizeText from "../components/autosize-text"
-import { baseUrl } from "../config"
-import Footer from "../components/footer"
-import Submit from "../components/submit"
+import styles from "../../styles/Home.module.css"
+import AutosizeText from "../../components/autosize-text"
+import { baseUrl } from "../../config"
+import Footer from "../../components/footer"
+import Submit from "../../components/submit"
 
 function Entry({ id, entry }: { id: Number; entry: string }) {
   const [showModal, setShowModal] = useState(false)
@@ -132,9 +132,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   // Get the paths we want to pre-render based on posts
   const paths = entries.map((_entry, idx) => {
     let id = `${idx + 1}`
-    if (id == "404") {
-      id = "404_"
-    }
+
     return { params: { id } }
   })
 
