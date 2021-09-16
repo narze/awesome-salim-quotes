@@ -20,7 +20,7 @@ import Submit from "../../components/submit"
 
 function Entry({ id, entry }: { id: Number; entry: string }) {
   const [showModal, setShowModal] = useState(false)
-  const url = `${baseUrl}/${id}`
+  const url = `${baseUrl}/q/${id}`
 
   function getOgImageUrl() {
     const size = Math.min(3, entry.length / 20)
