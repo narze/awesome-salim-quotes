@@ -715,4 +715,5 @@ Contributions welcome!
 - I has not support an artists, Who have to present in the minus , because that songs article not pleasing and not sound great at all into our ears. #แบนมิลลิ #NotSupportMinusArtist
 - ถ้าไม่เสียหายโกงจำนำข้าวหลายแสนล้านบาท อย่าว่าแต่ถ่ายทอดสดเลย เอาบอลโลกมาจัดที่ไทยยังได้
 - เคยอ่านจาก weibo นะ ว่า The Standards, The Matter และอีกหลายๆ สื่อ (จำไม่ได้) ซึ่งเป็นส่วนใหญ่เลย รับทำงานให้ CIA
+- สรยุทธเคยบอกว่าเศรษฐกิจไม่ดี แต่ตอนขายป๊อปคอร์นแห่ไปซื้อกันเต็มห้าง เศรษฐกิจดีขึ้นในยุคลุงตู่
 <!-- Add more in any line to prevent conflicts เพิ่มข้อความที่บรรทัดไหนก็ได้ เพื่อป้องกันการ Conflict -->
