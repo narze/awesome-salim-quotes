@@ -66,7 +66,10 @@ export default function Home({ entries }: { entries: string[] }) {
               <span className={styles.red}>เจ๋ง</span>
             </span>
           </h1>
-          <div className={`${styles.entryRoulette} ${styles.grow}`}>
+          <div
+            data-testid="result"
+            className={`${styles.entryRoulette} ${styles.grow}`}
+          >
             <AutosizeText>{entry}</AutosizeText>
           </div>
           <div className={styles.action}>

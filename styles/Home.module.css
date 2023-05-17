@@ -1,12 +1,12 @@
 .container {
-  min-height: 100vh;
+  min-height: 100svh;
   margin: 0;
   padding: 20px 0;
   /* display: flex; */
   /* flex-direction: column;
   justify-content: center;
   align-items: center; */
-  height: 100vh;
+  height: 100svh;
 
   background-image: linear-gradient(
     to bottom,

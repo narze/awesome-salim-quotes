@@ -1,20 +1,9 @@
-import type { NextApiRequest, NextApiResponse } from "next"
-import NextCors from "nextjs-cors"
+import { NextResponse } from "next/server"
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
-  await NextCors(req, res, {
-    // Options
-    methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
-    origin: "*",
-    optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
-  })
-
+export async function GET(_request: Request) {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
 
-  res.status(200).json({
+  const body = {
     description: "Watasalim JSON API",
     github: "https://github.com/narze/awesome-salim-quotes",
     tip_me: "https://ko-fi.com/narze",
@@ -33,5 +22,14 @@ export default async function handler(
         description: "Get randomized quote",
       },
     ],
+  }
+
+  return NextResponse.json(body, {
+    status: 200,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+      "Access-Control-Allow-Headers": "Content-Type, Authorization",
+    },
   })
 }
