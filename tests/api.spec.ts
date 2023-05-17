@@ -21,6 +21,18 @@ test.describe("/api/quotes", () => {
   })
 })
 
+test.describe("/api/quotes/:id", () => {
+  test("should return specific quote", async ({ request }) => {
+    const response = await request.get(`/api/quotes/1`)
+    expect(response.ok()).toBeTruthy()
+
+    const result = await response.json()
+    expect(result).toHaveProperty("quote.id")
+    expect(result).toHaveProperty("quote.body")
+    expect(result).toHaveProperty("quote.url")
+  })
+})
+
 test.describe("/api/quotes/random", () => {
   test("should return random quote", async ({ request }) => {
     const response = await request.get(`/api/quotes/random`)
