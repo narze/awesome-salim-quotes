@@ -19,6 +19,7 @@
     "react-share": "^4.4.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.33.0",
     "@types/react": "18.2.6",
     "@types/react-gtm-module": "^2.0.0",
     "autoprefixer": "^10.2.6",
