@@ -41,6 +41,7 @@ export default function Home({ entries }: { entries: string[] }) {
         <meta
           property="og:image"
           content={
+            // Use old one since it shows better ไม้เอก
             "https://og-image-asq.vercel.app/ไม่ใช่สลิ่มนะ%20แต่....?md=1&fontSize=calc(12vw)"
           }
         />

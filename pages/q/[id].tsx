@@ -23,11 +23,7 @@ function Entry({ id, entry }: { id: Number; entry: string }) {
   const url = `${baseUrl}/q/${id}`
 
   function getOgImageUrl() {
-    const size = Math.min(3, entry.length / 20)
-    const multiplier = 3 + 3 * (4 - size)
-    return `https://og-image-asq.vercel.app/“${entry}”?md=1&fontSize=calc(${multiplier.toFixed(
-      2
-    )}vw)`
+    return `https://watasalim.vercel.app/og/${id}`
   }
 
   return (
