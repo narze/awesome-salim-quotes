@@ -64,7 +64,7 @@ function Entry({ id, entry }: { id: Number; entry: string }) {
             <AutosizeText>{entry}</AutosizeText>
           </div>
           <div className={styles.action}>
-            <Link href="/" passHref>
+            <Link href="/" passHref legacyBehavior>
               <button className={styles.button}>🚴‍♀️ ปั่นใหม่ 🚴‍♂️</button>
             </Link>
             <div className={styles.share}>
@@ -85,10 +85,10 @@ function Entry({ id, entry }: { id: Number; entry: string }) {
                 </LineShareButton>
               </span>
               <span>
-                <Link href="/latest" passHref>
-                  <a className={styles.smallButton}>
-                    <small>ดูวาทกรรมล่าสุด</small>
-                  </a>
+                <Link href="/latest" passHref className={styles.smallButton}>
+
+                  <small>ดูวาทกรรมล่าสุด</small>
+
                 </Link>
               </span>
               <span>
@@ -116,7 +116,7 @@ function Entry({ id, entry }: { id: Number; entry: string }) {
         </div>
       </main>
     </div>
-  )
+  );
 }
 
 // This function gets called at build time

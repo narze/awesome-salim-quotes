@@ -73,11 +73,11 @@ export default function Home({ entries }: { entries: string[] }) {
             <AutosizeText>{entry}</AutosizeText>
           </div>
           <div className={styles.action}>
-            <Link href={`/q/${resultId}`} passHref>
+            <Link href={`/q/${resultId}`} passHref legacyBehavior>
               <button className={styles.button}>🚴‍♂️ ปั่นเลย! 🚴‍♀️</button>
             </Link>
 
-            <Link href="/latest" passHref>
+            <Link href="/latest" passHref legacyBehavior>
               <button className={styles.button}>ดูวาทกรรมล่าสุด</button>
             </Link>
 
@@ -102,7 +102,7 @@ export default function Home({ entries }: { entries: string[] }) {
         </div>
       </main>
     </div>
-  )
+  );
 }
 
 export async function getStaticProps() {
