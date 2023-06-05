@@ -22,12 +22,6 @@ export async function GET(
       return NextResponse.json({ error: "Not found" }, { status: 404 })
     }
 
-    const quote = {
-      id: index + 1,
-      body: entries[index],
-      url: `https://watasalim.vercel.app/q/${index + 1}`,
-    }
-
     const entry = entries[index]
 
     const size = Math.min(3, entry.length / 20)
